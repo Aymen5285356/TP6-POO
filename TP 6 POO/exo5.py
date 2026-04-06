@@ -1,5 +1,3 @@
-# Exercice 5 - Gestion des notes avec exceptions
-
 def calculer_moyenne_notes():
     notes_valides = []
 
@@ -15,15 +13,14 @@ def calculer_moyenne_notes():
                     continue
 
                 try:
-                    # Séparer le nom et la note
+                  
                     parties = ligne.split(',')
                     if len(parties) != 2:
                         raise ValueError("Format incorrect (attendu: Nom,Note)")
 
                     nom = parties[0].strip()
                     note_str = parties[1].strip()
-
-                    # Convertir la note en nombre
+                
                     try:
                         note = float(note_str)
                         if note < 0 or note > 20:
@@ -49,7 +46,6 @@ def calculer_moyenne_notes():
         print(f"Erreur inattendue lors de l'ouverture du fichier : {e}")
         return
 
-    # Afficher la moyenne des notes valides
     print("\n" + "=" * 40)
     if notes_valides:
         moyenne = sum(notes_valides) / len(notes_valides)
@@ -59,6 +55,4 @@ def calculer_moyenne_notes():
         print("Aucune note valide trouvée pour calculer la moyenne.")
     print("=" * 40)
 
-
-# Exécution
 calculer_moyenne_notes()
